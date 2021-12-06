@@ -18,7 +18,7 @@ func main() {
 	checkError(err)
 	conn, err := net.DialTCP("tcp", nil, tcpAddr)
 	checkError(err)
-	for i := 1; i <= 5; i++ {
+	for i := 1; i <= 3; i++ {
 		str := fmt.Sprintf("nguyen huu thi %d", i)
 		_, err = conn.Write([]byte(str))
 		checkError(err)
@@ -28,9 +28,9 @@ func main() {
 	checkError(err)
 	//result, err := ioutil.ReadAll(conn)
 	//checkError(err)
-	fmt.Println("resultresultresultresultresult", string(buf[0:n]))
+	fmt.Println("result", string(buf[0:n]))
 	//fmt.Println("resultresultresultresultresult", string(result))
-	os.Exit(0)
+	//os.Exit(0)
 }
 func checkError(err error) {
 	if err != nil {

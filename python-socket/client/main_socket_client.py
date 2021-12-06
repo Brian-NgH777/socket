@@ -1,24 +1,11 @@
 import socket
 
-# host = 'https://whispering-wildwood-05019.herokuapp.com'
-host = '127.0.0.1'
-port = 5000
+HOST = "127.0.0.1"  # The server's hostname or IP address
+PORT = 65432  # The port used by the server
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((host, port))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b"Hello, world")
+    data = s.recv(1024)
 
-while True:
-    command = input("Enter your command: ")
-    if command == 'EXIT':
-        # Send EXIT request to other end
-        s.send(str.encode(command))
-        break
-    elif command == 'KILL':
-        # Send KILL command
-        s.send(str.encode(command))
-        break
-    s.send(str.encode(command))
-    reply = s.recv(1024)
-    print("reply", reply.decode('utf-8'))
-
-s.close()
+print("Received", repr(data))

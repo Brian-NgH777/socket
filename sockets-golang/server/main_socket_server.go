@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// port := os.Getenv("PORT")
-	port := "5000"
+	port := "65432"
 	service := fmt.Sprintf(":%s",port)
 	tcpAddr, err := net.ResolveTCPAddr("tcp4", service)
 	fmt.Println("tcpAddr:", tcpAddr)
@@ -38,7 +38,6 @@ func handleClient(conn net.Conn) {
 	defer conn.Close()
 
 	var buf [512]byte
-	fmt.Println("Message and RemoteAddr", string(buf[0:]), conn.RemoteAddr())
 	for {
 		// read upto 512 bytes
 		n, err := conn.Read(buf[0:])
