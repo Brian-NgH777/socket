@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Python</title>
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<body>
+<h1 class="text">Python Socket</h1>
+<table>
+    <tr>
+        <th>Python Client</th>
+        <th>Golang Server</th>
+    </tr>
+    {% for i in range(dataLengths): %}
+    <tr>
+        <td>{{nameClients[i]}}</td>
+        <td>{{dataServers[i]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
